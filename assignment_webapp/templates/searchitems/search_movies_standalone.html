@@ -1,0 +1,23 @@
+{# This is a standalone search page for fuzzy search #}
+{% include 'top.html' %}
+    <div class="content">
+        <h1 class="title">Search Movies</h1>
+
+        <form class="Search" method="POST" action="{{url_for('search_movies')}}">
+          <input id="movie-search-box" type="text" name="searchterm" placeholder="Movies" autofocus=""
+                 onKeyUp="javascript:app.movie_get_hint();"/>
+          <button class="flat", type="button" onClick="javascript:app.movie_fuzzy_search();">Search</button>
+        </form>
+                <table class="styled" id="movie-search-list">
+                    <thead>
+                        <tr>
+                            <td>Movie ID</td>
+                            <td>Movie Title</td>
+                            <td>Movie Release Year</td>
+                        </tr>
+                    </thead>
+                    <tbody id="movie-search-list-body">
+                    </tbody>
+                </table>
+    </div>
+{% include 'bottom.html'%}

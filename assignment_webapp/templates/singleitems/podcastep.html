@@ -1,0 +1,56 @@
+{% include 'top.html' %}
+<div class="content">
+    <div class="container details">
+        <!-- TODO Query 7
+        Display All Relevant Podcast Episode Infromation including meta data
+        -->
+        <!-- TODO Query 7
+        Display All Relevant Podcast Infromation including meta data
+        Display All Relevant Podcast Episodes for this Podcast
+        -->
+        <!-- 
+            Show meta data
+         -->
+         <h1>
+            List of episodes for {{podcastep.podcast_episode_title}}
+         </h1>
+
+         <div class="podcast-main-info" style="max-width: 500px; margin: auto; background-color: #3d405b; opacity: 0.5; font-size: small; color: #f4f1de; padding: 2em; border-radius: 2em;">
+            <h2>
+                Main Formation about {{podcastep.podcast_episode_title}}
+            </h2>
+            <h3>Podcast Episode Media ID : {{podcastep.media_id}}</h3>
+            <h3>Podcast Episode Length : {{podcastep.podcast_episode_length}}</h3>
+            <h3>Podcast Episode Link</h3>
+            <a href="{{podcastep.podcast_episode_uri}}" style="text-decoration: underline; color: #f4f1de !important;">
+                {{podcastep.podcast_episode_uri}}
+            </a>
+            <p style="font-style: italic;">Last Updated at {{podcastep.podcast_episode_published_date}}</p>
+         </div>
+         <h2>Genres</h2>
+         <ul>
+            {% for instance in genre_list %}
+            <li>
+                {{instance}}
+            </li>
+            {% endfor %}
+         </ul>
+         <h2>Description</h2>
+         {% for instance in description_list %}
+            <p>
+                {{instance}}
+            </p>
+         {% endfor %}
+         <h2>Podcast Episode Artworks</h2>
+         {% for instance in artwork_list %}
+            <img src="{{instance}}" alt="" class="podcast-image" style="max-width : 200px; display: inline;">
+         {% endfor %}
+         <h2>Podcast Episode Copyright</h2>
+         {% for instance in copyrights_list %}
+            <p>
+                {{instance}}
+            </p>
+         {% endfor %}
+    </div>
+</div>
+{% include 'bottom.html'%}
